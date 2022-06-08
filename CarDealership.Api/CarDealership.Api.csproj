@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>CarDealership.Api.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Attributes\**" />
+    <Content Remove="Attributes\**" />
+    <EmbeddedResource Remove="Attributes\**" />
+    <None Remove="Attributes\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CarDealership.Application\CarDealership.Application.csproj" />
+    <ProjectReference Include="..\CarDealership.Domain.Commands\CarDealership.Domain.Commands.csproj" />
+    <ProjectReference Include="..\CarDealership.Domain.Entities\CarDealership.Domain.Entities.csproj" />
+    <ProjectReference Include="..\CarDealership.Domain.Queries\CarDealership.Domain.Queries.csproj" />
+    <ProjectReference Include="..\CarDealership.Infrastructure.DataAccess\CarDealership.Infrastructure.DataAccess.csproj" />
+  </ItemGroup>
+
+
+</Project>

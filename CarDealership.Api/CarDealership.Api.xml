@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CarDealership.Api</name>
+    </assembly>
+    <members>
+        <member name="T:CarDealership.Api.Controllers.VehicleController">
+            <summary>
+            CarDealership's vehicles management
+            </summary>
+            <remarks> CarDealership's vehicles management
+            </remarks> 
+        </member>
+        <member name="M:CarDealership.Api.Controllers.VehicleController.#ctor(Microsoft.Extensions.Logging.ILogger{CarDealership.Api.Controllers.VehicleController},CarDealership.Application.Services.Vehicle.IVehicleService)">
+            <summary>
+            Vehicle's controller constructor
+            </summary>
+            <param name="logger"></param>
+            <param name="vehicleService"></param>
+        </member>
+        <member name="M:CarDealership.Api.Controllers.VehicleController.GetAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets Vehicle by Id
+            </summary>
+            <remarks> Gets Vehicle from CarDelearship by param Id
+            </remarks> 
+        </member>
+        <member name="M:CarDealership.Api.Controllers.VehicleController.GetAllAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets all vehicles
+            </summary>
+            <remarks> Gets all vehicles from CarDelearship
+            </remarks> 
+        </member>
+        <member name="M:CarDealership.Api.Controllers.VehicleController.CreateAsync(CarDealership.Domain.Commands.Vehicle.CreateVehicleCommand,System.Threading.CancellationToken)">
+            <summary>
+            Creates vehicle 
+            </summary>
+            <remarks> Adds a new vehicle to the CarDelearship
+            </remarks> 
+        </member>
+        <member name="M:CarDealership.Api.Controllers.VehicleController.UpdateAsync(CarDealership.Domain.Commands.Vehicle.UpdateVehicleCommand,System.Threading.CancellationToken)">
+            <summary>
+            Updates vehicle 
+            </summary>
+            <remarks> Edits an existing vehicle in the CarDelearship
+            </remarks> 
+        </member>
+        <member name="M:CarDealership.Api.Controllers.VehicleController.DeleteAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Deletes vehicle by Id
+            </summary>
+            <remarks> Deletes an existing vehicle in the CarDelearship
+            </remarks> 
+        </member>
+        <member name="T:CarDealership.Api.Middleware.ApiKeyMiddleware">
+            <summary>
+            ApiKey middleware
+            </summary>
+        </member>
+        <member name="M:CarDealership.Api.Middleware.ApiKeyMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            ApiKey middleware
+            </summary>
+            <param name="next"></param>
+        </member>
+        <member name="M:CarDealership.Api.Middleware.ApiKeyMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Middleware para añadir en las peticiones la validación por Apikey
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CarDealership.Api.Program">
+            <summary>
+            Program
+            </summary>
+        </member>
+        <member name="M:CarDealership.Api.Program.Main(System.String[])">
+            <summary>
+            Main
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:CarDealership.Api.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            CreateHostBuilder
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CarDealership.Api.Startup">
+            <summary>
+            Startup
+            </summary>
+        </member>
+        <member name="M:CarDealership.Api.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Startup Constructor
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:CarDealership.Api.Startup.Configuration">
+            <summary>
+            Configuration
+            </summary>
+        </member>
+        <member name="M:CarDealership.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container. 
+            </summary>
+            <param name="services"></param>        
+        </member>
+        <member name="M:CarDealership.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+        <member name="T:CarDealership.Api.StartUpConfiguration.AutoMapperConfiguration">
+            <summary>
+            AutoMapper configuration
+            </summary>
+        </member>
+        <member name="M:CarDealership.Api.StartUpConfiguration.AutoMapperConfiguration.AddAutoMapper(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add automapper configuration. Para el automapeo de entidades
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CarDealership.Api.StartUpConfiguration.MappingProfile">
+            <summary>
+            Create mapping maps. Perfil de mapeo de entidades Vehículo
+            </summary>
+        </member>
+        <member name="M:CarDealership.Api.StartUpConfiguration.MappingProfile.#ctor">
+            <summary>
+            Create mapping maps constructor
+            </summary>
+        </member>
+        <member name="T:CarDealership.Api.StartUpConfiguration.MediatRConfiguration">
+            <summary>
+            MediatR configuration
+            </summary>
+        </member>
+        <member name="M:CarDealership.Api.StartUpConfiguration.MediatRConfiguration.AddMediatR(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Añadir MediatR configuration. Para usarse en las peticiones de datos siguiendo el patrón CQRS
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CarDealership.Api.StartUpConfiguration.SwaggerAuthenticationConfiguration">
+            <summary>
+            Swagger authentication configuration
+            </summary>
+        </member>
+        <member name="M:CarDealership.Api.StartUpConfiguration.SwaggerAuthenticationConfiguration.AddApiKeyHeader(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
+            <summary>
+            Añadir validación ApiKey para Swagger
+            </summary>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
